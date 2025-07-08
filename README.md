@@ -13,7 +13,7 @@
       * **检索增强生成 (RAG)**: 通过 `EmbeddingRetriever` 和 `VectorStore`，从知识库中检索相关信息，为 LLM 提供更丰富的上下文，有效缓解模型幻觉问题。
   * **异步编程**: 全面采用 `asyncio` 异步编程模型，提高程序运行效率。
 
-##主要组件
+## 主要组件
 
   * `Agent.py`: 核心代理，负责协调 LLM 和 MCP 客户端。
   * `ChatOpenAI.py`: 封装 OpenAI 聊天 API，支持流式输出和工具调用。
