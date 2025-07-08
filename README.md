@@ -8,10 +8,10 @@
 
   * **从零开始，不依赖框架**: 项目代码纯手工打造，不使用 LangChain、LlamaIndex 。
   * **LLM + MCP + RAG 融合**:
-      * **大型语言模型 (LLM)**: 集成 `ChatOpenAI` 类，通过调用大模型 API 实现强大的自然语言理解和生成能力。
+      * **大型语言模型 (LLM)**: 集成 `ChatOpenAI` 类，调用大模型 API。
       * **模型上下文协议 (MCP)**: 利用 `MCPClient` 类，实现与外部工具的交互，使 Agent 具备调用工具的能力。
-      * **检索增强生成 (RAG)**: 通过 `EmbeddingRetriever` 和 `VectorStore`，从知识库中检索相关信息，为 LLM 提供更丰富的上下文，有效缓解模型幻觉问题。
-  * **异步编程**: 全面采用 `asyncio` 异步编程模型，提高程序运行效率。
+      * **检索增强生成 (RAG)**: 通过 `EmbeddingRetriever` 和 `VectorStore`，从知识库中检索相关信息，为 LLM 提供更丰富的上下文。
+  * **异步编程**: 采用 `asyncio` 异步编程模型，提高程序运行效率。
 
 ## 主要组件
 
