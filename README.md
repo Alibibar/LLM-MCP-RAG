@@ -20,6 +20,7 @@
   * `MCPClient.py`: 实现 MCP 协议，连接并调用外部工具。
   * `EmbeddingRetriever.py`: 文本嵌入与检索，实现 RAG 的核心功能。
   * `VectorStore.py`: 向量数据库，用于存储和检索文本向量。
+  * `ceval_processor.py`: C-Eval 数据集处理器，支持parquet文件读取和JSON转换。
 
 ## 快速开始
 
@@ -56,6 +57,8 @@ python src/MainTask.py
 
 ```
 .
+├── docs              # 文档目录
+│   └── CEVAL_PROCESSOR_README.md
 ├── knowledge         # 知识库目录
 │   └── Chapter1.txt
 ├── output            # 输出目录
@@ -66,10 +69,37 @@ python src/MainTask.py
 │   ├── EmbeddingRetriever.py
 │   ├── MainTask.py
 │   ├── MCPClient.py
+│   ├── ceval_processor.py      # C-Eval数据集处理器
+│   ├── test_ceval_processor.py # C-Eval处理器测试
 │   ├── utils.py
 │   └── VectorStore.py
 └── README.md
 ```
+
+## C-Eval 数据集处理
+
+项目新增了 C-Eval 数据集处理功能，用于处理中文基础模型评估数据集：
+
+### 功能特性
+- **可靠的 Parquet 读取**: 使用 PyArrow 直接读取，避免 pandas 兼容性问题
+- **智能错误处理**: 多种读取策略处理损坏的 parquet 文件  
+- **进度跟踪**: 详细的处理进度和日志记录
+- **数据完整性**: 为每条数据添加科目字段
+
+### 使用方法
+
+```bash
+# 安装依赖
+pip install pyarrow
+
+# 处理 C-Eval 数据集
+python src/ceval_processor.py --data_dir /path/to/ceval --output ceval_val_merged.json
+
+# 运行测试
+python src/test_ceval_processor.py
+```
+
+详细文档请参阅: [C-Eval 处理器说明](docs/CEVAL_PROCESSOR_README.md)
 
 -----
 
